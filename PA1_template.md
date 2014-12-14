@@ -1,5 +1,10 @@
+---
+title: "Reproducible Research: Peer Assessment 1"
+output: 
+  html_document:
+    keep_md: true
+---
 # Reproducible Research: Peer Assessment 1
-
 
 ## Loading and preprocessing the data
 Unzip archive and read raw data from file. Overview the dataset.
@@ -28,7 +33,7 @@ steps_per_day <- aggregate(steps~date, data=raw_data, sum, na.rm = TRUE)
 hist(steps_per_day$steps, main="Steps per day", xlab = "Total steps per day")
 ```
 
-![](./PA1_template_files/figure-html/unnamed-chunk-2-1.png) 
+![plot of chunk unnamed-chunk-2](figure/unnamed-chunk-2-1.png) 
 
 Calculate mean and median.
 
@@ -67,7 +72,7 @@ lab_pos <- seq(from = 0, by = 50, length.out = nrow(asteps_5min)/50)
 axis(1, at=lab_pos, labels = asteps_5min$intname[lab_pos + 1])
 ```
 
-![](./PA1_template_files/figure-html/unnamed-chunk-5-1.png) 
+![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5-1.png) 
 
 Find interval with the maximum average number of steps.
 
@@ -108,7 +113,7 @@ filled_spd <- aggregate(steps~date, data = filled_data, sum, na.rm = TRUE)
 hist(filled_spd$steps, main="Steps per day", xlab = "Total steps per day")
 ```
 
-![](./PA1_template_files/figure-html/unnamed-chunk-8-1.png) 
+![plot of chunk unnamed-chunk-8](figure/unnamed-chunk-8-1.png) 
 
 ```r
 mean_fspd <- mean(filled_spd$steps)
@@ -146,7 +151,7 @@ Sys.setlocale("LC_TIME", lct)
 ```
 
 ```
-## [1] "ru_RU.UTF-8"
+## [1] "C"
 ```
 
 Caclucalte average number of steps in 5 minute intervals. Plot graph with 
@@ -159,6 +164,6 @@ library(lattice)
 xyplot(steps ~ interval | wdtype, data = wd5min, layout=c(1, 2), type = "l")
 ```
 
-![](./PA1_template_files/figure-html/unnamed-chunk-10-1.png) 
+![plot of chunk unnamed-chunk-10](figure/unnamed-chunk-10-1.png) 
 
 Activity patterns between weekdays and weekends are differ.
